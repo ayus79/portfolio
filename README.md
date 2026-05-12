@@ -11,10 +11,10 @@ built with **Astro** + **Tailwind CSS** because i refused to use a WordPress tem
 
 ## stack
 
-- **Astro** — because React was too much javascript for a static page
-- **Tailwind CSS** — because writing actual CSS is a form of self-harm
-- **JetBrains Mono** — so it looks like i know what i'm doing
-- **GitHub Pages** — free hosting, can't complain (i won't pay for this)
+- **Astro** - because React was too much javascript for a static page
+- **Tailwind CSS** - because writing actual CSS is a form of self-harm
+- **JetBrains Mono** - so it looks like i know what i'm doing
+- **GitHub Pages** - free hosting, can't complain (i won't pay for this)
 
 ## running locally
 
