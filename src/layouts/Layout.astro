@@ -1,0 +1,133 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Ayush Contractor',
+  description = 'Backend-focused Software Engineer specializing in Python, FastAPI, and scalable system design.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <!-- Nav -->
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-[#1e1e1e] bg-[#0d0d0d]/90 backdrop-blur-sm">
+      <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        <a href="/portfolio/" class="text-green-400 font-bold text-sm tracking-wider shrink-0">
+          <span class="text-gray-500">~/</span>ayush
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="hidden md:flex items-center gap-6 text-sm text-gray-400">
+          <li><a href="#about" class="hover:text-green-400 transition-colors">about</a></li>
+          <li><a href="#projects" class="hover:text-green-400 transition-colors">projects</a></li>
+          <li><a href="#skills" class="hover:text-green-400 transition-colors">skills</a></li>
+        </ul>
+
+        <!-- Mobile hamburger button -->
+        <button
+          id="menu-btn"
+          aria-label="Toggle menu"
+          class="md:hidden flex flex-col gap-1.5 p-2 text-gray-400 hover:text-green-400 transition-colors"
+        >
+          <span class="block w-5 h-px bg-current transition-all duration-300" id="bar1"></span>
+          <span class="block w-5 h-px bg-current transition-all duration-300" id="bar2"></span>
+          <span class="block w-5 h-px bg-current transition-all duration-300" id="bar3"></span>
+        </button>
+      </nav>
+
+      <!-- Mobile menu drawer -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden border-t border-[#1e1e1e] bg-[#0d0d0d]"
+      >
+        <ul class="flex flex-col px-4 py-4 gap-1 text-sm text-gray-400">
+          <li>
+            <a href="#about" class="mobile-link block py-2.5 px-3 rounded hover:bg-[#111] hover:text-green-400 transition-colors">
+              <span class="text-green-400 mr-2">$</span>about
+            </a>
+          </li>
+          <li>
+            <a href="#projects" class="mobile-link block py-2.5 px-3 rounded hover:bg-[#111] hover:text-green-400 transition-colors">
+              <span class="text-green-400 mr-2">$</span>projects
+            </a>
+          </li>
+          <li>
+            <a href="#skills" class="mobile-link block py-2.5 px-3 rounded hover:bg-[#111] hover:text-green-400 transition-colors">
+              <span class="text-green-400 mr-2">$</span>skills
+            </a>
+          </li>
+          <li class="pt-2 border-t border-[#1e1e1e] mt-1">
+            <a
+              href="mailto:ayushcon2000@gmail.com"
+              class="mobile-link block py-2.5 px-3 text-green-400 rounded hover:bg-[#111] transition-colors"
+            >
+              <span class="mr-2">✉</span>ayushcon2000@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-14">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mt-16 border-t border-[#1e1e1e]">
+      <p class="text-xs text-center text-gray-500">
+        <span class="text-green-400">©</span> {new Date().getFullYear()} Ayush Contractor
+      </p>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('menu-btn')!;
+      const menu = document.getElementById('mobile-menu')!;
+      const bar1 = document.getElementById('bar1')!;
+      const bar2 = document.getElementById('bar2')!;
+      const bar3 = document.getElementById('bar3')!;
+
+      let open = false;
+
+      btn.addEventListener('click', () => {
+        open = !open;
+        menu.classList.toggle('hidden', !open);
+        // Animate to X
+        if (open) {
+          bar1.style.transform = 'translateY(6px) rotate(45deg)';
+          bar2.style.opacity = '0';
+          bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
+        } else {
+          bar1.style.transform = '';
+          bar2.style.opacity = '';
+          bar3.style.transform = '';
+        }
+      });
+
+      // Close on nav link click
+      document.querySelectorAll('.mobile-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          open = false;
+          menu.classList.add('hidden');
+          bar1.style.transform = '';
+          bar2.style.opacity = '';
+          bar3.style.transform = '';
+        });
+      });
+    </script>
+  </body>
+</html>

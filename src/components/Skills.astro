@@ -1,0 +1,33 @@
+---
+const skills: Record<string, string[]> = {
+  Languages: ['Python', 'JavaScript'],
+  Frameworks: ['FastAPI', 'Flask'],
+  'DB & Caching': ['PostgreSQL', 'MongoDB', 'Redis'],
+  'Dev Tools': ['Docker', 'GitLab', 'GitHub'],
+  Testing: ['Unit Testing', 'Integration Testing'],
+  Architecture: ['Microservices', 'System Design', 'Scalable APIs', 'Data Migration'],
+};
+---
+
+<section id="skills" class="py-16 md:py-24">
+  <p class="text-gray-500 text-xs sm:text-sm mb-2 truncate">
+    <span class="text-green-400">ayush@dev</span>:<span class="text-cyan-400">~/skills</span>$ npm list --depth=0
+  </p>
+  <h2 class="section-title">Skills</h2>
+
+  <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+    {Object.entries(skills).map(([category, items]) => (
+      <div class="card">
+        <p class="text-green-400 text-xs uppercase tracking-widest mb-3">{category}</p>
+        <ul class="space-y-1.5">
+          {items.map((item) => (
+            <li class="text-gray-300 text-xs sm:text-sm flex items-center gap-2">
+              <span class="text-gray-600 shrink-0">—</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
