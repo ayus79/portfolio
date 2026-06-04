@@ -1,6 +1,14 @@
 ---
 const projects = [
   {
+    name: 'Research Assist',
+    description: 'Autonomous AI research agent that takes a topic, searches the web, and generates a comprehensive markdown report. The agent breaks topics into sub-questions, searches DuckDuckGo in parallel, evaluates data sufficiency with an LLM, loops if needed, then streams the final report to the browser in real time. Supports follow-up questions grounded in the report.',
+    tags: ['FastAPI', 'LangGraph', 'LangChain', 'Ollama', 'LangSmith', 'SSE'],
+    github: 'https://github.com/ayus79/research-assist',
+    live: null,
+    featured: false,
+  },
+  {
     name: 'FlagSwitch',
     description: 'Open source feature flag product for seamless feature rollouts. Instantly toggle features without redeployments - built for reliability, speed, and developer experience.',
     tags: ['Open Source', 'FastAPI', 'MongoDB', 'SDK'],
@@ -23,9 +31,9 @@ const projects = [
     featured: true,
   },
   {
-    name: 'Business Intelligence Module',
-    description: 'End-to-end BI module providing operational and analytical insights. Architected backend services, data aggregation pipelines, and querying strategies for analytics - significantly improving marketing lead generation.',
-    tags: ['Flask', 'MongoDB', 'Data Aggregation'],
+    name: 'Business Intelligence',
+    description: 'End-to-end BI system providing operational and analytical insights. Architected backend services, data aggregation pipelines, and querying strategies for analytics - significantly improving marketing lead generation.',
+    tags: ['Flask', 'MongoDB', 'Data Aggregation', 'Analytics'],
     github: null,
     live: null,
     featured: false,
