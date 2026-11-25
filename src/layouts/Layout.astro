@@ -33,7 +33,6 @@ const {
 
         <!-- Desktop links -->
         <ul class="hidden md:flex items-center gap-6 text-sm text-gray-400">
-          <li><a href="#top" class="hover:text-green-400 transition-colors">home</a></li>
           <li><a href="#about" class="hover:text-green-400 transition-colors">about</a></li>
           <li><a href="#projects" class="hover:text-green-400 transition-colors">projects</a></li>
           <li><a href="#skills" class="hover:text-green-400 transition-colors">skills</a></li>
@@ -58,11 +57,6 @@ const {
         class="md:hidden hidden border-t border-[#1e1e1e] bg-[#0d0d0d]"
       >
         <ul class="flex flex-col px-4 py-4 gap-1 text-sm text-gray-400">
-          <li>
-            <a href="#top" class="mobile-link block py-2.5 px-3 rounded hover:bg-[#111] hover:text-green-400 transition-colors">
-              <span class="text-green-400 mr-2">$</span>home
-            </a>
-          </li>
           <li>
             <a href="#about" class="mobile-link block py-2.5 px-3 rounded hover:bg-[#111] hover:text-green-400 transition-colors">
               <span class="text-green-400 mr-2">$</span>about
@@ -102,7 +96,7 @@ const {
     <!-- Footer -->
     <footer class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mt-16 border-t border-[#1e1e1e]">
       <p class="text-xs text-center text-gray-500">
-        <span class="text-green-400">©</span> {new Date().getFullYear()} Ayush Contractor
+        <span class="text-green-400">©</span> <span id="year">{new Date().getFullYear()}</span> Ayush Contractor
       </p>
     </footer>
 
@@ -119,7 +113,13 @@ const {
     </button>
 
     <script>
-      const topBtn = document.getElementById('scroll-top')!;
+      // Keep the footer year current without needing a rebuild
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+    </script>
+
+    <script>
+      const topBtn =document.getElementById('scroll-top')!;
       const toggleTopBtn = () => {
         const show = window.scrollY > 400;
         topBtn.classList.toggle('opacity-0', !show);

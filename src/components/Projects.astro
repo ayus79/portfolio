@@ -58,13 +58,7 @@ const projects = [
 
   <div class="grid gap-5 md:grid-cols-2">
     {projects.map((p) => (
-      <article class="card relative isolate overflow-hidden flex flex-col gap-4">
-        <!-- Soft green glow in the top-left corner -->
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute -top-12 -left-12 -z-10 w-40 h-40 rounded-full bg-green-500/15 blur-2xl"
-        ></div>
-
+      <article class="card flex flex-col gap-4">
         <!-- Top row -->
         <div class="flex items-start justify-between">
           <div class="text-green-400">
