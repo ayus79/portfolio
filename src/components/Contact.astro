@@ -1,0 +1,58 @@
+---
+const email = 'ayushcon2000@gmail.com';
+
+const info = [
+  { label: 'email', value: email, icon: 'mail' },
+  { label: 'based in', value: 'Ahmedabad, Gujarat, India', icon: 'pin' },
+  { label: 'availability', value: 'Open to remote / hybrid collaboration', icon: 'globe' },
+];
+---
+
+<section id="contact" class="py-16 md:py-24">
+  <p class="text-gray-500 text-xs sm:text-sm mb-2 truncate">
+    <span class="text-green-400">ayush@dev</span>:<span class="text-cyan-400">~/contact</span>$ cat hello.txt
+  </p>
+  <h2 class="section-title !mb-3">Let's work together<span class="text-green-400">.</span></h2>
+  <p class="max-w-xl text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
+    Have a project, an idea, or a backend problem worth solving? I'd love to hear about it.
+    Drop me an email and I'll get back to you.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mb-8">
+    {info.map((item) => {
+      return (
+        <div class="card flex items-start gap-3 min-w-0">
+          <span class="text-green-400 mt-0.5 shrink-0">
+            {item.icon === 'mail' && (
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            )}
+            {item.icon === 'pin' && (
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            )}
+            {item.icon === 'globe' && (
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            )}
+          </span>
+          <div class="min-w-0">
+            <p class="text-gray-500 text-xs uppercase tracking-widest mb-1">{item.label}</p>
+            <p class="text-gray-200 text-sm break-words">{item.value}</p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <a
+    href={`mailto:${email}`}
+    class="inline-block bg-green-500 text-black font-semibold px-5 py-2.5 rounded hover:bg-green-400 transition-colors text-sm"
+  >
+    say hello &rarr;
+  </a>
+</section>
